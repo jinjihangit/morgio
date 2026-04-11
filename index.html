@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>판교 모르지오 · 1차 분양</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --british-green: #1a3a2a;
+    --deep-green: #0f2218;
+    --accent-gold: #c9a96e;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --dark-text: #1a1a1a;
+    --mid-text: #4a4a4a;
+    --light-text: #8a8a8a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--warm-white); color: var(--dark-text); overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; background: rgba(15,34,24,0.96); backdrop-filter: blur(10px); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; letter-spacing: 6px; color: white; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 300; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--accent-gold); }
+  .nav-cta { font-size: 11px; letter-spacing: 2px; padding: 10px 24px; border: 1px solid var(--accent-gold); color: var(--accent-gold); text-decoration: none; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--accent-gold); color: var(--deep-green); }
+
+  .hero { height: 100vh; background: var(--deep-green); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0f2218 0%, #1a3a2a 50%, #0a1a12 100%); }
+  .hero-texture { position: absolute; inset: 0; background-image: radial-gradient(ellipse at 20% 80%, rgba(201,169,110,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(45,90,61,0.3) 0%, transparent 50%); }
+  .hero-content { position: relative; text-align: center; z-index: 2; padding: 0 20px; }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 6px; color: var(--accent-gold); font-style: italic; margin-bottom: 24px; opacity: 0; animation: fadeInUp 1.2s ease 0.3s forwards; }
+  .hero-title { font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4.5vw, 58px); font-weight: 300; color: white; line-height: 1.5; letter-spacing: 1px; margin-bottom: 16px; opacity: 0; animation: fadeInUp 1.2s ease 0.5s forwards; }
+  .hero-title em { font-style: italic; color: var(--accent-gold); font-family: 'Cormorant Garamond', serif; font-size: 1.15em; }
+  .hero-tagline { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.45); letter-spacing: 4px; margin-bottom: 48px; opacity: 0; animation: fadeInUp 1.2s ease 0.7s forwards; }
+  .hero-cta-group { display: flex; gap: 16px; justify-content: center; opacity: 0; animation: fadeInUp 1.2s ease 0.9s forwards; }
+  .btn-primary { padding: 14px 40px; background: var(--accent-gold); color: var(--deep-green); font-size: 12px; letter-spacing: 3px; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+  .btn-primary:hover { background: #b8945a; transform: translateY(-2px); }
+  .btn-outline { padding: 14px 40px; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); font-size: 12px; letter-spacing: 3px; text-decoration: none; transition: all 0.3s; }
+  .btn-outline:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+  .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeInUp 1.2s ease 1.2s forwards; }
+  .hero-scroll span { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.3); }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent); animation: scrollPulse 2s ease infinite; }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  .brand-story { background: var(--british-green); padding: 120px 60px; text-align: center; }
+  .brand-story-en { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 300; color: white; letter-spacing: 4px; margin-bottom: 12px; font-style: italic; }
+  .brand-story-ko { font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--accent-gold); letter-spacing: 4px; margin-bottom: 16px; font-weight: 300; }
+  .brand-story-sub { font-family: 'Noto Serif KR', serif; font-size: 14px; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-bottom: 56px; font-weight: 300; font-style: italic; }
+  .brand-story-desc { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.62); line-height: 2.5; max-width: 680px; margin: 0 auto; }
+
+  /* STORY SECTIONS */
+  .story-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 540px; }
+  .story-section.reverse { direction: rtl; }
+  .story-section.reverse > * { direction: ltr; }
+
+  /* Photo placeholder using CSS */
+  .story-image { position: relative; overflow: hidden; min-height: 480px; }
+  .photo-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .photo-placeholder-note { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.2); margin-top: 80px; font-family: 'Cormorant Garamond', serif; }
+  .img-20s { background: linear-gradient(160deg, #1e4535 0%, #0f2218 40%, #1a3a2a 100%); }
+  .img-30s { background: linear-gradient(160deg, #0d1f15 0%, #1a3a2a 50%, #0f2218 100%); }
+  .img-40s { background: linear-gradient(160deg, #142a1e 0%, #0f2218 40%, #1e4535 100%); }
+  .img-50s { background: linear-gradient(160deg, #0a1812 0%, #1a3a2a 50%, #0f2218 100%); }
+
+  /* Texture overlay on photos */
+  .photo-texture { position: absolute; inset: 0; background-image: radial-gradient(circle at 30% 40%, rgba(201,169,110,0.06) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(255,255,255,0.03) 0%, transparent 50%); }
+
+  .gen-circle { width: 80px; height: 80px; border: 1px solid rgba(201,169,110,0.3); border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+  .gen-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: rgba(201,169,110,0.65); font-style: italic; }
+  .gen-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 4px; color: rgba(255,255,255,0.3); position: relative; z-index: 1; }
+  .generation-tag { position: absolute; bottom: 36px; left: 36px; font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; color: rgba(255,255,255,0.07); line-height: 1; }
+
+  /* 실제 사진 교체 안내 */
+  .photo-replace-note {
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.15);
+    font-family: 'Noto Sans KR', sans-serif;
+    background: rgba(0,0,0,0.2);
+    padding: 4px 8px;
+    border-radius: 2px;
+  }
+
+  .story-text { background: var(--warm-white); padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; }
+  .story-generation { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 5px; color: var(--accent-gold); margin-bottom: 20px; font-style: italic; }
+  .story-name { font-family: 'Noto Serif KR', serif; font-size: 21px; font-weight: 400; color: var(--british-green); margin-bottom: 28px; line-height: 1.7; }
+  .story-desc { font-size: 13px; font-weight: 300; color: var(--light-text); line-height: 2.1; }
+
+  .dark-divider { background: var(--deep-green); padding: 100px 60px; text-align: center; }
+  .dark-divider-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 4vw, 52px); font-weight: 300; color: white; letter-spacing: 1px; font-style: italic; line-height: 1.6; }
+  .dark-divider-text strong { color: var(--accent-gold); font-style: normal; font-weight: 400; display: block; margin-top: 12px; }
+
+  .concept { background: var(--cream); padding: 120px 60px; text-align: center; }
+  .concept-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 5px; color: var(--accent-gold); font-style: italic; margin-bottom: 40px; }
+  .concept-main { font-family: 'Noto Serif KR', serif; font-size: clamp(16px, 2.2vw, 24px); font-weight: 300; color: var(--british-green); line-height: 2.4; max-width: 740px; margin: 0 auto 80px; }
+  .concept-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(26,58,42,0.1); max-width: 960px; margin: 0 auto; }
+  .value-item { background: var(--cream); padding: 52px 40px; text-align: center; }
+  .value-icon { width: 52px; height: 52px; margin: 0 auto 24px; border: 1px solid var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .value-icon svg { width: 22px; height: 22px; stroke: var(--accent-gold); fill: none; }
+  .value-title { font-family: 'Noto Serif KR', serif; font-size: 16px; font-weight: 400; color: var(--british-green); margin-bottom: 16px; }
+  .value-desc { font-size: 12px; font-weight: 300; color: var(--mid-text); line-height: 2; }
+
+  .specs { background: white; padding: 120px 60px; }
+  .specs-header { text-align: center; margin-bottom: 72px; }
+  .specs-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 5px; color: var(--accent-gold); font-style: italic; margin-bottom: 16px; }
+  .specs-title { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 300; color: var(--british-green); letter-spacing: 2px; }
+  .specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 960px; margin: 0 auto 60px; background: rgba(26,58,42,0.08); }
+  .spec-item { background: white; padding: 48px 32px; text-align: center; }
+  .spec-number { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--british-green); line-height: 1; margin-bottom: 8px; }
+  .spec-unit { font-size: 11px; color: var(--accent-gold); letter-spacing: 2px; margin-bottom: 12px; font-weight: 300; }
+  .spec-desc { font-size: 12px; font-weight: 300; color: var(--light-text); line-height: 1.9; }
+  .specs-note { text-align: center; font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 300; color: var(--mid-text); line-height: 2.2; max-width: 600px; margin: 0 auto; }
+
+  /* 중요 단서조항 - 눈에 띄게 */
+  .specs-important {
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 28px 40px;
+    background: var(--british-green);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .specs-important-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .specs-important-icon svg { width: 20px; height: 20px; stroke: var(--accent-gold); fill: none; }
+  .specs-important-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+  }
+  .specs-important-text strong { color: var(--accent-gold); font-weight: 400; }
+
+  .application { background: var(--british-green); padding: 120px 60px; text-align: center; }
+  .application-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 5px; color: var(--accent-gold); font-style: italic; margin-bottom: 24px; }
+  .application-title { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 300; color: white; letter-spacing: 3px; margin-bottom: 48px; }
+  .application-conditions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; max-width: 700px; margin: 0 auto 60px; background: rgba(255,255,255,0.1); }
+  .condition-item { background: var(--british-green); padding: 36px 40px; text-align: left; }
+  .condition-label { font-size: 10px; letter-spacing: 3px; color: var(--accent-gold); margin-bottom: 10px; font-weight: 300; }
+  .condition-value { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 300; color: white; line-height: 1.8; }
+  .application-btn { display: inline-block; padding: 16px 60px; background: var(--accent-gold); color: var(--deep-green); font-size: 13px; letter-spacing: 4px; text-decoration: none; font-weight: 500; transition: all 0.3s; margin-bottom: 20px; }
+  .application-btn:hover { background: #b8945a; transform: translateY(-2px); }
+  .application-sub { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 2px; }
+
+  footer { background: var(--deep-green); padding: 48px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 300; }
+  .footer-text { font-size: 11px; color: rgba(255,255,255,0.2); text-align: right; line-height: 1.8; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">MORGIO</div>
+  <ul class="nav-links">
+    <li><a href="#story">브랜드 스토리</a></li>
+    <li><a href="#residents">입주민</a></li>
+    <li><a href="#specs">분양안내</a></li>
+  </ul>
+  <a href="#application" class="nav-cta">입주신청</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <p class="hero-sub">The Natural Comfort</p>
+    <h1 class="hero-title">우리 서로 <em>모르니까</em><br>더 솔직한 이웃이 될 수 있어요</h1>
+    <p class="hero-tagline">판교 모르지오 · 1차 분양</p>
+    <div class="hero-cta-group">
+      <a href="#application" class="btn-primary">입주 신청하기</a>
+      <a href="#story" class="btn-outline">브랜드 스토리</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section class="brand-story fade-in" id="story">
+  <p class="brand-story-en">The Natural Comfort</p>
+  <p class="brand-story-ko">나다움이 지니는 편안함</p>
+  <p class="brand-story-sub">다름에서 찾은 적당한 거리감, 내 삶의 본연을 반상회에서 찾다</p>
+  <p class="brand-story-desc">
+    판교에 새로운 아파트가 생겼습니다.<br><br>
+    IT, 스타트업, 금융, 커머스, 컨텐츠 — 서로 다른 업계에서 일하는<br>
+    20대부터 50대까지의 일하는 여성들의 안락한 공간 입니다.<br><br>
+    모르지오 아파트는 매주 반상회가 열립니다.<br>
+    할 말 있는 세대가 반상회를 열면 다른 세대 이웃들이 함께 해요.<br>
+    모르지오 반상회는 아파트 단지를 넘어 세상으로 퍼져나갑니다.
+  </p>
+</section>
+
+<!-- 205호 -->
+<section class="story-section fade-in" id="residents">
+  <div class="story-image img-20s">
+    <div class="photo-texture"></div>
+    <div class="photo-placeholder">
+      <div class="gen-circle"><span class="gen-num">20s</span></div>
+      <div class="gen-label">TWENTIES</div>
+      <p class="photo-placeholder-note">사진 교체 예정</p>
+    </div>
+    <div class="generation-tag">205</div>
+    <div class="photo-replace-note">PHOTO PLACEHOLDER</div>
+  </div>
+  <div class="story-text">
+    <p class="story-generation">207호</p>
+    <h3 class="story-name">"지금 이 길이<br>맞는 건지 모르겠어요."</h3>
+    <p class="story-desc">
+      취업도 쉽지 않지만, 이 회사도 내가 원하던 곳이 맞는지 모르겠어요.
+      잘하고 있는 건지, 이 방향이 맞는 건지 한번쯤 다른 세대 이웃에게 물어보고 싶어요.
+    </p>
+  </div>
+</section>
+
+<!-- 312호 -->
+<section class="story-section reverse fade-in">
+  <div class="story-image img-30s">
+    <div class="photo-texture"></div>
+    <div class="photo-placeholder">
+      <div class="gen-circle"><span class="gen-num">30s</span></div>
+      <div class="gen-label">THIRTIES</div>
+      <p class="photo-placeholder-note">사진 교체 예정</p>
+    </div>
+    <div class="generation-tag">312</div>
+    <div class="photo-replace-note">PHOTO PLACEHOLDER</div>
+  </div>
+  <div class="story-text">
+    <p class="story-generation">312호</p>
+    <h3 class="story-name">"정답 말고,<br>경험을 듣고 싶어요."</h3>
+    <p class="story-desc">
+      커리어도 쌓였고 연봉도 올랐는데, 어느 순간부터 '이게 다인가' 싶어요.
+      이직할지, 계속 다닐지, 더 도전할지 — 
+      결정을 앞두고 나보다 먼저 이 시기를 지나간 이웃의 이야기가 듣고 싶어요.
+    </p>
+  </div>
+</section>
+
+<!-- 408호 -->
+<section class="story-section fade-in">
+  <div class="story-image img-40s">
+    <div class="photo-texture"></div>
+    <div class="photo-placeholder">
+      <div class="gen-circle"><span class="gen-num">40s</span></div>
+      <div class="gen-label">FORTIES</div>
+      <p class="photo-placeholder-note">사진 교체 예정</p>
+    </div>
+    <div class="generation-tag">408</div>
+    <div class="photo-replace-note">PHOTO PLACEHOLDER</div>
+  </div>
+  <div class="story-text">
+    <p class="story-generation">412호</p>
+    <h3 class="story-name">"위아래 다 보여요.<br>연결해줄 수 있을 것 같은데."</h3>
+    <p class="story-desc">
+      지금은 위도 보이고 아래도 보이는 위치네요. 
+      아래 세대한테 다가가면 꼰대 소리 들을까 봐 조심스럽고, 위 세대는 저도 어려워요.
+      모르지오에선 괜찮을까요?
+    </p>
+  </div>
+</section>
+
+<!-- 510호 -->
+<section class="story-section reverse fade-in">
+  <div class="story-image img-50s">
+    <div class="photo-texture"></div>
+    <div class="photo-placeholder">
+      <div class="gen-circle"><span class="gen-num">50s</span></div>
+      <div class="gen-label">FIFTIES</div>
+      <p class="photo-placeholder-note">사진 교체 예정</p>
+    </div>
+    <div class="generation-tag">510</div>
+    <div class="photo-replace-note">PHOTO PLACEHOLDER</div>
+  </div>
+  <div class="story-text">
+    <p class="story-generation">521호</p>
+    <h3 class="story-name">"나한테 당연한 게<br>저 세대한테는 낯설대요."</h3>
+    <p class="story-desc">
+      세상이 빠르게 바뀌는 게 두렵지만 흥미로워요.
+      오래 일하면서 쌓아온 것들, 당연하게 여기던 것들이 다른 세대한테는 얼마나 낯선지 가끔은 궁금해요.
+    </p>
+  </div>
+</section>
+
+<div class="dark-divider fade-in">
+  <p class="dark-divider-text">
+    위치가 다르면 보이는 것도 달라요.<br>
+    <strong>모르지오에서 함께 해요.</strong>
+  </p>
+</div>
+
+<section class="concept fade-in">
+  <p class="concept-label">반상회</p>
+  <p class="concept-main">
+    모르지오 아파트는 매주 반상회가 열립니다.<br>
+    할 말 있는 세대가 반상회를 열면<br>
+    다양한 세대 이웃들이 문을 열고 나와요.<br>
+    가르치는 사람도 없고, 배우는 사람도 없어요.<br>
+    내가 특정 세대를 대표할 이유도 없어요.<br>
+    나의 시선으로 보고 느낄 뿐<br>
+  </p>
+  <div class="concept-values">
+    <div class="value-item">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h4 class="value-title">다른 세대가 만나는 자리</h4>
+      <p class="value-desc">반상회는 같은 건물,<br>다른 세대가 처음으로<br>마주 앉는 자리입니다.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h4 class="value-title">가르치지 않는 대화</h4>
+      <p class="value-desc">정답이 없어요.<br>서로 다른 시각이 있을 뿐입니다.<br>그 다름이 대화가 됩니다.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h4 class="value-title">입주민이 만드는 반상회</h4>
+      <p class="value-desc">주제를 정하고, 이웃을 부르고,<br>직접 세상에 내보냅니다.<br>청취자가 아닌 주인입니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="specs fade-in" id="specs">
+  <div class="specs-header">
+    <p class="specs-label">분양 안내</p>
+    <h2 class="specs-title">판교 모르지오 · 1차 분양</h2>
+  </div>
+  <div class="specs-grid">
+    <div class="spec-item">
+      <div class="spec-number">12<span style="font-size:28px;">세대</span></div>
+      <p class="spec-unit">UNITS</p>
+      <p class="spec-desc">20, 30, 40, 50대<br>3가구 모집</p>
+    </div>
+    <div class="spec-item">
+      <div class="spec-number">1<span style="font-size:28px;">주</span></div>
+      <p class="spec-unit">EPISODE / WEEK</p>
+      <p class="spec-desc">매주 수요일<br>반상회가 열립니다</p>
+    </div>
+    <div class="spec-item">
+      <div class="spec-number">3<span style="font-size:28px;">회</span></div>
+      <p class="spec-unit">PER PERSON</p>
+      <p class="spec-desc">3개월에 1회 발제<br>이웃으로 참여</p>
+    </div>
+  </div>
+  <p class="specs-note">
+    3개월 기준, 발제 1회 + 이웃으로 참여 2~3회.<br>
+    최소 3회 반상회에 참여합니다.
+  </p>
+  <div class="specs-important">
+    <div class="specs-important-icon">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    </div>
+    <p class="specs-important-text">
+      입주민은 <strong>주제 선정, 녹음, 편집, 발행까지</strong><br>
+      반상회의 모든 과정에 참여합니다. (주최한 반상회의 편집과 발행 필수)
+    </p>
+  </div>
+</section>
+
+<section class="application fade-in" id="application">
+  <p class="application-label">입주 신청</p>
+  <h2 class="application-title">모르지오에 입주하세요</h2>
+  <div class="application-conditions">
+    <div class="condition-item">
+      <p class="condition-label">모집 세대</p>
+      <p class="condition-value">20대·30대·40대·50대<br>각 3명, 전체 12명</p>
+    </div>
+    <div class="condition-item">
+      <p class="condition-label">입주 조건</p>
+      <p class="condition-value">IT, 스타트업, 컨텐츠<br>금융, 커머스 등 일하는 여성</p>
+    </div>
+    <div class="condition-item">
+      <p class="condition-label">반상회 일정</p>
+      <p class="condition-value">주 1회 매주 수요일<br>반상회가 열립니다</p>
+    </div>
+    <div class="condition-item">
+      <p class="condition-label">입주 문의</p>
+      <p class="condition-value">입주 신청하기<br>클릭하세요</p>
+    </div>
+  </div>
+  <a href="mailto:contact@morgio.com" class="application-btn">입주 신청하기</a>
+  <p class="application-sub">선착순 마감 · 세대별 균형 유지</p>
+</section>
+
+<footer>
+  <div class="footer-logo">MORGIO</div>
+  <div class="footer-text">
+    판교 모르지오<br>
+    © 2025 MORGIO. Powered by bitWN
+  </div>
+</footer>
+
+<script>
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.05 });
+  fadeEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) el.classList.add('visible');
+    else observer.observe(el);
+  });
+</script>
+</body>
+</html>
