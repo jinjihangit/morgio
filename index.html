@@ -29,8 +29,9 @@
   .nav-cta:hover { background: var(--accent-gold); color: var(--deep-green); }
 
   .hero { height: 100vh; background: var(--deep-green); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0f2218 0%, #1a3a2a 50%, #0a1a12 100%); }
-  .hero-texture { position: absolute; inset: 0; background-image: radial-gradient(ellipse at 20% 80%, rgba(201,169,110,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(45,90,61,0.3) 0%, transparent 50%); }
+  .hero-bg { position: absolute; inset: 0; background: url('hero.jpg') center/cover no-repeat; }
+  .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,20,15,0.55) 0%, rgba(15,34,24,0.65) 50%, rgba(10,20,15,0.85) 100%); }
+  .hero-texture { position: absolute; inset: 0; background-image: radial-gradient(ellipse at 20% 80%, rgba(201,169,110,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(45,90,61,0.2) 0%, transparent 50%); }
   .hero-content { position: relative; text-align: center; z-index: 2; padding: 0 20px; }
   @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 6px; color: var(--accent-gold); font-style: italic; margin-bottom: 24px; opacity: 0; animation: fadeInUp 1.2s ease 0.3s forwards; }
