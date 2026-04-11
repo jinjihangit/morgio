@@ -63,10 +63,11 @@
   .story-image { position: relative; overflow: hidden; min-height: 480px; }
   .photo-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .photo-placeholder-note { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.2); margin-top: 80px; font-family: 'Cormorant Garamond', serif; }
-  .img-20s { background: linear-gradient(160deg, #1e4535 0%, #0f2218 40%, #1a3a2a 100%); }
-  .img-30s { background: linear-gradient(160deg, #0d1f15 0%, #1a3a2a 50%, #0f2218 100%); }
-  .img-40s { background: linear-gradient(160deg, #142a1e 0%, #0f2218 40%, #1e4535 100%); }
-  .img-50s { background: linear-gradient(160deg, #0a1812 0%, #1a3a2a 50%, #0f2218 100%); }
+  .img-20s { background: url('20s.jpg') center/cover no-repeat; }
+  .img-30s { background: url('30s.jpg') center/cover no-repeat; }
+  .img-40s { background: url('40s.jpg') center/cover no-repeat; }
+  .img-50s { background: url('50s.jpg') center/cover no-repeat; }
+  .story-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,34,24,0.15) 0%, rgba(15,34,24,0.55) 100%); pointer-events: none; }
 
   /* Texture overlay on photos */
   .photo-texture { position: absolute; inset: 0; background-image: radial-gradient(circle at 30% 40%, rgba(201,169,110,0.06) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(255,255,255,0.03) 0%, transparent 50%); }
@@ -174,7 +175,7 @@
     <li><a href="#residents">입주민</a></li>
     <li><a href="#specs">분양안내</a></li>
   </ul>
-  <a href="#application" class="nav-cta">입주신청</a>
+  <a href="https://forms.gle/Rmh9tJWWuxs8mmtM9" target="_blank" rel="noopener" class="nav-cta">입주신청</a>
 </nav>
 
 <section class="hero">
@@ -185,7 +186,7 @@
     <h1 class="hero-title">우리 서로 <em>모르니까</em><br>더 솔직한 이웃이 될 수 있어요</h1>
     <p class="hero-tagline">판교 모르지오 · 1차 분양</p>
     <div class="hero-cta-group">
-      <a href="#application" class="btn-primary">입주 신청하기</a>
+      <a href="https://forms.gle/Rmh9tJWWuxs8mmtM9" target="_blank" rel="noopener" class="btn-primary">입주 신청하기</a>
       <a href="#story" class="btn-outline">브랜드 스토리</a>
     </div>
   </div>
@@ -216,10 +217,8 @@
     <div class="photo-placeholder">
       <div class="gen-circle"><span class="gen-num">20s</span></div>
       <div class="gen-label">TWENTIES</div>
-      <p class="photo-placeholder-note">사진 교체 예정</p>
     </div>
     <div class="generation-tag">205</div>
-    <div class="photo-replace-note">PHOTO PLACEHOLDER</div>
   </div>
   <div class="story-text">
     <p class="story-generation">207호</p>
@@ -238,10 +237,8 @@
     <div class="photo-placeholder">
       <div class="gen-circle"><span class="gen-num">30s</span></div>
       <div class="gen-label">THIRTIES</div>
-      <p class="photo-placeholder-note">사진 교체 예정</p>
     </div>
     <div class="generation-tag">312</div>
-    <div class="photo-replace-note">PHOTO PLACEHOLDER</div>
   </div>
   <div class="story-text">
     <p class="story-generation">312호</p>
@@ -261,10 +258,8 @@
     <div class="photo-placeholder">
       <div class="gen-circle"><span class="gen-num">40s</span></div>
       <div class="gen-label">FORTIES</div>
-      <p class="photo-placeholder-note">사진 교체 예정</p>
     </div>
     <div class="generation-tag">408</div>
-    <div class="photo-replace-note">PHOTO PLACEHOLDER</div>
   </div>
   <div class="story-text">
     <p class="story-generation">412호</p>
@@ -284,10 +279,8 @@
     <div class="photo-placeholder">
       <div class="gen-circle"><span class="gen-num">50s</span></div>
       <div class="gen-label">FIFTIES</div>
-      <p class="photo-placeholder-note">사진 교체 예정</p>
     </div>
     <div class="generation-tag">510</div>
-    <div class="photo-replace-note">PHOTO PLACEHOLDER</div>
   </div>
   <div class="story-text">
     <p class="story-generation">510호</p>
@@ -399,7 +392,7 @@
       <p class="condition-value">입주 신청하기<br>클릭하세요</p>
     </div>
   </div>
-  <a href="https://forms.gle/Rmh9tJWWuxs8mmtM9" class="application-btn">입주 신청하기</a>
+  <a href="https://forms.gle/Rmh9tJWWuxs8mmtM9" target="_blank" rel="noopener" class="application-btn">입주 신청하기</a>
   <p class="application-sub">선착순 마감 · 세대별 균형 유지</p>
 </section>
 
