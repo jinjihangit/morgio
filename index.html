@@ -178,7 +178,8 @@
   .faq-answer p { font-size: 13px; font-weight: 300; color: var(--mid-text); line-height: 2; }
 
   footer { background: var(--deep-green); padding: 48px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 300; }
+  .footer-logo { display: flex; align-items: center; }
+  .footer-logo img { height: 28px; width: auto; display: block; opacity: 0.6; }
   .footer-text { font-size: 11px; color: rgba(255,255,255,0.2); text-align: right; line-height: 1.8; }
 
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
@@ -486,10 +487,10 @@
 </section>
 
 <footer>
-  <div class="footer-logo">MORGIO</div>
+  <div class="footer-logo"><img src="logo.png" alt="MORGIO"></div>
   <div class="footer-text">
     판교 모르지오<br>
-    © 2025 MORGIO. Powered by JPlan
+    © 2025 MORGIO. Powered by JJ
   </div>
 </footer>
 
