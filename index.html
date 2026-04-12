@@ -202,6 +202,74 @@
 
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ========== MOBILE ========== */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-logo img { height: 26px; }
+    .nav-links { display: none; }
+    .nav-cta { font-size: 10px; letter-spacing: 1.5px; padding: 8px 16px; }
+
+    .hero { height: 100svh; min-height: 560px; }
+    .hero-content { padding: 0 24px; }
+    .hero-sub { font-size: 11px; letter-spacing: 4px; margin-bottom: 18px; }
+    .hero-title { font-size: 26px; line-height: 1.55; letter-spacing: 0.5px; margin-bottom: 14px; }
+    .hero-title em { font-size: 1.1em; }
+    .hero-tagline { font-size: 13px; letter-spacing: 3px; margin-bottom: 36px; }
+    .hero-cta-group { flex-direction: column; gap: 12px; align-items: center; }
+    .btn-primary, .btn-outline { padding: 14px 36px; font-size: 11px; letter-spacing: 2px; width: 80%; max-width: 280px; text-align: center; }
+    .hero-scroll { bottom: 24px; }
+
+    .brand-story { padding: 72px 24px; }
+    .brand-story-en { font-size: 26px; letter-spacing: 2px; }
+    .brand-story-sub { font-size: 12px; letter-spacing: 0.5px; margin-bottom: 40px; line-height: 1.7; }
+    .brand-story-desc { font-size: 13px; line-height: 2.2; }
+
+    .story-section { grid-template-columns: 1fr; min-height: auto; }
+    .story-section.reverse { direction: ltr; }
+    .story-image { min-height: 280px; }
+    .generation-tag { font-size: 52px; bottom: 20px; left: 20px; }
+    .story-text { padding: 56px 28px; }
+    .story-name { font-size: 18px; margin-bottom: 20px; }
+    .story-desc { font-size: 13px; line-height: 2; }
+
+    .dark-divider { padding: 64px 24px; }
+    .dark-divider-text { font-size: 15px; letter-spacing: 0.5px; line-height: 1.9; }
+
+    .concept { padding: 72px 24px; }
+    .concept-label { margin-bottom: 28px; }
+    .concept-main { font-size: 15px; line-height: 2.1; margin-bottom: 48px; }
+    .concept-values { grid-template-columns: 1fr; }
+    .value-item { padding: 40px 28px; }
+
+    .specs { padding: 72px 24px; }
+    .specs-header { margin-bottom: 48px; }
+    .specs-title { font-size: 20px; letter-spacing: 1px; }
+    .specs-grid { grid-template-columns: 1fr; max-width: 420px; }
+    .spec-item { padding: 36px 24px; }
+    .spec-number { font-size: 42px; }
+    .specs-note { font-size: 13px; line-height: 2; }
+    .specs-important { padding: 22px 24px; margin-top: 32px; gap: 14px; }
+    .specs-important-text { font-size: 12px; line-height: 1.8; }
+
+    .application { padding: 72px 24px; }
+    .application-title { font-size: 20px; letter-spacing: 2px; margin-bottom: 36px; }
+    .application-conditions { grid-template-columns: 1fr; max-width: 420px; }
+    .condition-item { padding: 28px 28px; }
+    .application-btn { padding: 16px 48px; font-size: 12px; letter-spacing: 2px; }
+
+    .faq { padding: 72px 20px; }
+    .faq-header { margin-bottom: 48px; }
+    .faq-title { font-size: 20px; letter-spacing: 1px; }
+    .faq-group { margin-bottom: 40px; }
+    .faq-question { font-size: 14px; padding: 20px 4px; gap: 12px; line-height: 1.55; }
+    .faq-item.open .faq-answer { padding: 0 4px 24px 22px; max-height: 600px; }
+    .faq-answer p { font-size: 12px; line-height: 1.95; }
+
+    footer { flex-direction: column; gap: 20px; padding: 40px 24px; text-align: center; }
+    .footer-logo img { height: 24px; }
+    .footer-text { text-align: center; font-size: 10px; }
+  }
 </style>
 </head>
 <body>
