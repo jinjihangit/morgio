@@ -47,6 +47,7 @@
   .nav-cta { font-size: 11px; letter-spacing: 2px; padding: 10px 24px; border: 1px solid var(--accent-gold); color: var(--accent-gold); text-decoration: none; transition: all 0.3s; }
   .nav-cta:hover { background: var(--accent-gold); color: var(--deep-green); }
 
+  /* ── HERO ── */
   .hero { height: 100vh; background: var(--deep-green); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; background: url('hero.jpg') center/cover no-repeat; }
   .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,20,15,0.55) 0%, rgba(15,34,24,0.65) 50%, rgba(10,20,15,0.85) 100%); }
@@ -67,48 +68,29 @@
   .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent); animation: scrollPulse 2s ease infinite; }
   @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
+  /* ── BRAND STORY ── */
   .brand-story { background: var(--british-green); padding: 120px 60px; text-align: center; }
   .brand-story-en { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 300; color: white; letter-spacing: 4px; margin-bottom: 12px; font-style: italic; }
   .brand-story-ko { font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--accent-gold); letter-spacing: 4px; margin-bottom: 16px; font-weight: 300; }
   .brand-story-sub { font-family: 'Noto Serif KR', serif; font-size: 14px; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-bottom: 56px; font-weight: 300; font-style: italic; }
   .brand-story-desc { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.62); line-height: 2.5; max-width: 680px; margin: 0 auto; }
 
-  /* STORY SECTIONS */
+  /* ── STORY SECTIONS (기존 세대 소개) ── */
   .story-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 540px; }
   .story-section.reverse { direction: rtl; }
   .story-section.reverse > * { direction: ltr; }
-
-  /* Photo placeholder using CSS */
   .story-image { position: relative; overflow: hidden; min-height: 480px; }
   .photo-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .photo-placeholder-note { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.2); margin-top: 80px; font-family: 'Cormorant Garamond', serif; }
   .img-20s { background: url('20s.jpg') center/cover no-repeat; }
   .img-30s { background: url('30s.jpg') center/cover no-repeat; }
   .img-40s { background: url('40s.jpg') center/cover no-repeat; }
   .img-50s { background: url('50s.jpg') center/cover no-repeat; }
   .story-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,34,24,0.15) 0%, rgba(15,34,24,0.55) 100%); pointer-events: none; }
-
-  /* Texture overlay on photos */
-  .photo-texture { position: absolute; inset: 0; background-image: radial-gradient(circle at 30% 40%, rgba(201,169,110,0.06) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(255,255,255,0.03) 0%, transparent 50%); }
-
+  .photo-texture { position: absolute; inset: 0; background-image: radial-gradient(circle at 30% 40%, rgba(201,169,110,0.06) 0%, transparent 60%); }
   .gen-circle { width: 80px; height: 80px; border: 1px solid rgba(201,169,110,0.3); border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
   .gen-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: rgba(201,169,110,0.65); font-style: italic; }
   .gen-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 4px; color: rgba(255,255,255,0.3); position: relative; z-index: 1; }
   .generation-tag { position: absolute; bottom: 36px; left: 36px; font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; color: rgba(255,255,255,0.07); line-height: 1; }
-
-  /* 실제 사진 교체 안내 */
-  .photo-replace-note {
-    position: absolute;
-    top: 20px; right: 20px;
-    font-size: 9px;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.15);
-    font-family: 'Noto Sans KR', sans-serif;
-    background: rgba(0,0,0,0.2);
-    padding: 4px 8px;
-    border-radius: 2px;
-  }
-
   .story-text { background: var(--warm-white); padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; }
   .story-generation { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 5px; color: var(--accent-gold); margin-bottom: 20px; font-style: italic; }
   .story-name { font-family: 'Noto Serif KR', serif; font-size: 21px; font-weight: 400; color: var(--british-green); margin-bottom: 28px; line-height: 1.7; }
@@ -118,6 +100,122 @@
   .dark-divider-text { font-family: 'Noto Serif KR', serif; font-size: clamp(16px, 2vw, 24px); font-weight: 300; color: white; letter-spacing: 1px; line-height: 1.8; }
   .dark-divider-text strong { color: var(--accent-gold); font-style: normal; font-weight: 400; display: block; margin-top: 12px; }
 
+  /* ── EPISODES 섹션 (신규) ── */
+  .episodes { background: var(--cream); padding: 120px 60px; }
+  .episodes-header { text-align: center; margin-bottom: 20px; }
+  .episodes-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 5px; color: var(--accent-gold); font-style: italic; margin-bottom: 16px; }
+  .episodes-title { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 300; color: var(--british-green); letter-spacing: 2px; margin-bottom: 16px; }
+  .episodes-intro { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 300; color: var(--mid-text); line-height: 2; max-width: 560px; margin: 0 auto 72px; }
+
+  /* EP1 — 풀 섹션 (오디오 + 입주민 카드) */
+  .ep1-block { max-width: 960px; margin: 0 auto 80px; }
+  .ep-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  .ep-number { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 4px; color: var(--accent-gold); font-style: italic; }
+  .ep-badge-live { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 2px; color: var(--accent-gold); border: 1px solid rgba(201,169,110,0.4); padding: 3px 10px; }
+  .ep-badge-live::before { content: ''; width: 5px; height: 5px; background: var(--accent-gold); border-radius: 50%; animation: pulseDot 1.8s ease infinite; }
+  @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .ep1-title { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 400; color: var(--british-green); margin-bottom: 10px; line-height: 1.5; }
+  .ep1-desc { font-size: 13px; font-weight: 300; color: var(--mid-text); line-height: 2; margin-bottom: 32px; max-width: 640px; }
+
+  /* 오디오 플레이어 스타일 */
+  .audio-player-wrap { background: var(--british-green); padding: 28px 36px; margin-bottom: 48px; display: flex; align-items: center; gap: 24px; }
+  .audio-player-wrap audio { flex: 1; height: 36px; accent-color: var(--accent-gold); }
+  .audio-player-wrap audio::-webkit-media-controls-panel { background: transparent; }
+  .audio-label { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.4); white-space: nowrap; }
+  /* fallback: 파일 없을 때 대비 */
+  .audio-player-wrap audio { width: 100%; }
+
+  /* ── 입주민 아파트 (인터랙티브) ── */
+  .residents-grid-title { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 4px; color: var(--mid-text); margin-bottom: 24px; font-style: italic; text-align: center; }
+
+  .apartment { max-width: 600px; margin: 0 auto; background: #ece3d3; border: 1px solid rgba(26,58,42,0.12); border-radius: 4px 4px 0 0; box-shadow: 0 30px 80px rgba(26,58,42,0.18); overflow: hidden; }
+
+  /* 옥상 */
+  .apt-roof { background: var(--british-green); padding: 18px 0; text-align: center; }
+  .apt-sign { font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 8px; color: var(--accent-gold); font-style: italic; }
+
+  /* 층 */
+  .apt-floor { display: flex; align-items: stretch; border-bottom: 1px solid rgba(26,58,42,0.1); position: relative; }
+  .apt-floor-label { width: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 1px; color: var(--accent-gold); background: rgba(26,58,42,0.06); border-right: 1px solid rgba(26,58,42,0.08); font-style: italic; }
+  .apt-units { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+
+  /* 창문 (버튼) */
+  .apt-window { position: relative; aspect-ratio: 1/0.92; border: none; border-right: 1px solid rgba(26,58,42,0.08); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.3s; }
+  .apt-units .apt-window:last-child { border-right: none; }
+
+  /* 빈 창 (밝은 유리) */
+  .apt-window.dark { background: linear-gradient(160deg, #f6f0e4 0%, #ece4d4 100%); cursor: default; }
+  .apt-window.dark::after { content: ''; position: absolute; inset: 20% 24%; border: 1px solid rgba(26,58,42,0.07); background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 55%); }
+
+  /* 모집중 창 */
+  .apt-window.soon { background: linear-gradient(160deg, #fbf6ec 0%, #f0e8d6 100%); }
+  .soon-text { position: relative; z-index: 1; font-family: 'Noto Sans KR', sans-serif; font-size: 9px; letter-spacing: 1px; color: var(--accent-gold); }
+
+  /* 불 켜진 창 (입주민) */
+  .apt-window.lit { background: radial-gradient(ellipse at center, rgba(201,169,110,0.28) 0%, rgba(245,240,232,0.9) 75%); }
+  .apt-window.lit:hover { background: radial-gradient(ellipse at center, rgba(201,169,110,0.42) 0%, rgba(245,240,232,0.95) 75%); }
+  .apt-window.lit:hover .win-avatar { transform: scale(1.08); border-color: var(--accent-gold); box-shadow: 0 6px 20px rgba(201,169,110,0.4); }
+  .apt-window.lit:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: -2px; }
+
+  /* 창문 안 원형 아바타 */
+  .win-avatar { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid rgba(201,169,110,0.7); display: flex; align-items: center; justify-content: center; background: var(--warm-white); background-size: cover; background-position: center; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; box-shadow: 0 4px 14px rgba(26,58,42,0.18); }
+  .win-num { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--british-green); font-style: italic; }
+
+  /* 실제 사진 넣을 때: 아래 background-image 주석 해제하고 win-num 가려짐 */
+  .av-301 { /* background-image: url('r-301.jpg'); */ }
+  .av-302 { /* background-image: url('r-302.jpg'); */ }
+  .av-303 { /* background-image: url('r-303.jpg'); */ }
+  .av-304 { /* background-image: url('r-304.jpg'); */ }
+  .av-402 { /* background-image: url('r-402.jpg'); */ }
+  .av-404 { /* background-image: url('r-404.jpg'); */ }
+  .av-510 { /* background-image: url('r-510.jpg'); */ }
+
+  /* 1층 로비 */
+  .apt-lobby { background: var(--british-green); padding: 26px 44px; display: flex; align-items: center; gap: 18px; }
+  .lobby-door { width: 36px; height: 48px; border: 1px solid rgba(201,169,110,0.4); border-bottom: none; flex-shrink: 0; background: linear-gradient(180deg, rgba(201,169,110,0.15), transparent); }
+  .lobby-text { font-family: 'Noto Serif KR', serif; font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 1px; font-weight: 300; }
+
+  /* ── 입주민 모달 ── */
+  .resident-modal { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; }
+  .resident-modal.open { display: flex; }
+  .modal-backdrop { position: absolute; inset: 0; background: rgba(8,18,12,0.82); backdrop-filter: blur(4px); animation: fadeBackdrop 0.3s ease; }
+  @keyframes fadeBackdrop { from { opacity: 0; } to { opacity: 1; } }
+  .modal-card { position: relative; z-index: 1; background: var(--warm-white); max-width: 440px; width: 100%; padding: 52px 44px 48px; text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.5); animation: modalUp 0.4s cubic-bezier(0.16,1,0.3,1); }
+  @keyframes modalUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .modal-close { position: absolute; top: 18px; right: 22px; background: none; border: none; font-size: 26px; color: var(--light-text); cursor: pointer; line-height: 1; transition: color 0.2s; }
+  .modal-close:hover { color: var(--british-green); }
+  .modal-avatar { width: 92px; height: 92px; border-radius: 50%; border: 1.5px solid var(--accent-gold); margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, #f6f0e4 0%, #ece4d4 100%); background-size: cover; background-position: center; box-shadow: 0 6px 20px rgba(26,58,42,0.12); }
+  .modal-avatar span { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--british-green); font-style: italic; }
+  .modal-unit { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 4px; color: var(--accent-gold); font-style: italic; margin-bottom: 18px; }
+  .modal-quote { font-family: 'Noto Serif KR', serif; font-size: 19px; font-weight: 400; color: var(--british-green); line-height: 1.6; margin-bottom: 22px; }
+  .modal-bio { font-size: 13px; font-weight: 300; color: var(--mid-text); line-height: 2; }
+
+  /* EP2, EP3 — 컴팩트 카드 */
+  .ep-coming-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 960px; margin: 0 auto; }
+  .ep-coming-card { background: white; padding: 44px 48px; position: relative; overflow: hidden; }
+  .ep-coming-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent-gold); opacity: 0.3; }
+  .ep-coming-number { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 4px; color: var(--accent-gold); font-style: italic; margin-bottom: 12px; }
+  .ep-coming-title { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 400; color: var(--british-green); line-height: 1.6; margin-bottom: 14px; }
+  .ep-coming-desc { font-size: 12px; font-weight: 300; color: var(--light-text); line-height: 1.95; margin-bottom: 28px; }
+  .ep-coming-link { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 2px; color: var(--accent-gold); text-decoration: none; transition: gap 0.3s; }
+  .ep-coming-link:hover { gap: 14px; }
+  .ep-coming-link span { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+  .ep-coming-link svg { width: 14px; height: 14px; stroke: var(--accent-gold); fill: none; }
+  .ep-coming-link.disabled { opacity: 0.35; pointer-events: none; cursor: default; }
+  .ep-coming-badge { display: inline-block; font-size: 9px; letter-spacing: 2px; color: rgba(201,169,110,0.6); border: 1px solid rgba(201,169,110,0.3); padding: 3px 8px; margin-bottom: 20px; }
+
+  /* 소감 / 참여 신청 배너 */
+  .reaction-banner { background: var(--british-green); padding: 56px 60px; margin-top: 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 960px; margin: 80px auto 0; }
+  .reaction-text h3 { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 300; color: white; line-height: 1.7; margin-bottom: 8px; }
+  .reaction-text p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.9; }
+  .reaction-btns { display: flex; gap: 12px; flex-shrink: 0; }
+  .btn-reaction { display: inline-block; padding: 13px 28px; font-size: 11px; letter-spacing: 2px; text-decoration: none; transition: all 0.3s; white-space: nowrap; }
+  .btn-reaction.primary { background: var(--accent-gold); color: var(--deep-green); font-weight: 500; }
+  .btn-reaction.primary:hover { background: #b8945a; transform: translateY(-2px); }
+  .btn-reaction.outline { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.6); }
+  .btn-reaction.outline:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+  /* ── CONCEPT ── */
   .concept { background: var(--cream); padding: 120px 60px; text-align: center; }
   .concept-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 5px; color: var(--accent-gold); font-style: italic; margin-bottom: 40px; }
   .concept-main { font-family: 'Noto Serif KR', serif; font-size: clamp(16px, 2.2vw, 24px); font-weight: 300; color: var(--british-green); line-height: 2.4; max-width: 740px; margin: 0 auto 80px; }
@@ -128,6 +226,7 @@
   .value-title { font-family: 'Noto Serif KR', serif; font-size: 16px; font-weight: 400; color: var(--british-green); margin-bottom: 16px; }
   .value-desc { font-size: 12px; font-weight: 300; color: var(--mid-text); line-height: 2; }
 
+  /* ── SPECS ── */
   .specs { background: white; padding: 120px 60px; }
   .specs-header { text-align: center; margin-bottom: 72px; }
   .specs-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 5px; color: var(--accent-gold); font-style: italic; margin-bottom: 16px; }
@@ -138,34 +237,13 @@
   .spec-unit { font-size: 11px; color: var(--accent-gold); letter-spacing: 2px; margin-bottom: 12px; font-weight: 300; }
   .spec-desc { font-size: 12px; font-weight: 300; color: var(--light-text); line-height: 1.9; }
   .specs-note { text-align: center; font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 300; color: var(--mid-text); line-height: 2.2; max-width: 600px; margin: 0 auto; }
-
-  /* 중요 단서조항 - 눈에 띄게 */
-  .specs-important {
-    max-width: 700px;
-    margin: 40px auto 0;
-    padding: 28px 40px;
-    background: var(--british-green);
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .specs-important-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+  .specs-important { max-width: 700px; margin: 40px auto 0; padding: 28px 40px; background: var(--british-green); display: flex; align-items: flex-start; gap: 20px; }
+  .specs-important-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
   .specs-important-icon svg { width: 20px; height: 20px; stroke: var(--accent-gold); fill: none; }
-  .specs-important-text {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.9;
-    letter-spacing: 0.3px;
-  }
+  .specs-important-text { font-family: 'Noto Serif KR', serif; font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.9; letter-spacing: 0.3px; }
   .specs-important-text strong { color: var(--accent-gold); font-weight: 400; }
 
+  /* ── APPLICATION ── */
   .application { background: var(--british-green); padding: 120px 60px; text-align: center; }
   .application-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 5px; color: var(--accent-gold); font-style: italic; margin-bottom: 24px; }
   .application-title { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 300; color: white; letter-spacing: 3px; margin-bottom: 48px; }
@@ -177,6 +255,7 @@
   .application-btn:hover { background: #b8945a; transform: translateY(-2px); }
   .application-sub { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 2px; }
 
+  /* ── FAQ ── */
   .faq { background: var(--warm-white); padding: 120px 60px; }
   .faq-header { text-align: center; margin-bottom: 72px; }
   .faq-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 5px; color: var(--accent-gold); font-style: italic; margin-bottom: 16px; }
@@ -236,6 +315,28 @@
     .dark-divider { padding: 64px 24px; }
     .dark-divider-text { font-size: 15px; letter-spacing: 0.5px; line-height: 1.9; }
 
+    .episodes { padding: 72px 20px; }
+    .episodes-intro { margin-bottom: 48px; }
+    .ep1-desc { font-size: 13px; }
+    .audio-player-wrap { flex-direction: column; gap: 12px; padding: 20px 20px; align-items: flex-start; }
+    .audio-label { font-size: 10px; }
+    .apartment { max-width: 100%; }
+    .apt-floor-label { width: 32px; font-size: 10px; }
+    .win-avatar { width: 38px; height: 38px; }
+    .win-num { font-size: 11px; }
+    .apt-sign { font-size: 13px; letter-spacing: 5px; }
+    .soon-text { font-size: 7px; }
+    .apt-lobby { padding: 20px 24px; gap: 12px; }
+    .lobby-door { width: 28px; height: 38px; }
+    .lobby-text { font-size: 10px; }
+    .modal-card { padding: 44px 28px 40px; }
+    .modal-quote { font-size: 17px; }
+    .ep-coming-grid { grid-template-columns: 1fr; }
+    .ep-coming-card { padding: 32px 28px; }
+    .reaction-banner { flex-direction: column; padding: 40px 28px; gap: 28px; }
+    .reaction-btns { flex-direction: column; width: 100%; }
+    .btn-reaction { text-align: center; }
+
     .concept { padding: 72px 24px; }
     .concept-label { margin-bottom: 28px; }
     .concept-main { font-size: 15px; line-height: 2.1; margin-bottom: 48px; }
@@ -279,12 +380,14 @@
   <ul class="nav-links">
     <li><a href="#story">브랜드 스토리</a></li>
     <li><a href="#residents">입주민</a></li>
+    <li><a href="#episodes">반상회 듣기</a></li>
     <li><a href="#specs">분양 안내</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="https://forms.gle/Rmh9tJWWuxs8mmtM9" target="_blank" rel="noopener" class="nav-cta">입주신청</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-texture"></div>
@@ -293,8 +396,8 @@
     <h1 class="hero-title">우리 서로 <em>모르니까</em><br>더 솔직한 이웃이 될 수 있어요</h1>
     <p class="hero-tagline">판교 모르지오 · 1차 분양</p>
     <div class="hero-cta-group">
-      <a href="https://forms.gle/Rmh9tJWWuxs8mmtM9" target="_blank" rel="noopener" class="btn-primary">입주 신청하기</a>
-      <a href="#story" class="btn-outline">브랜드 스토리</a>
+      <a href="#episodes" class="btn-primary">반상회 들어보기</a>
+      <a href="https://forms.gle/Rmh9tJWWuxs8mmtM9" target="_blank" rel="noopener" class="btn-outline">입주 신청하기</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -303,6 +406,7 @@
   </div>
 </section>
 
+<!-- BRAND STORY -->
 <section class="brand-story fade-in" id="story">
   <p class="brand-story-en">The Natural Comfort</p>
   <p class="brand-story-ko">나다움이 지니는 편안함</p>
@@ -330,10 +434,7 @@
   <div class="story-text">
     <p class="story-generation">207호</p>
     <h3 class="story-name">"지금 이 길이<br>맞는 건지 모르겠어요."</h3>
-    <p class="story-desc">
-      취업도 쉽지 않지만, 이 회사도 내가 원하던 곳이 맞는지 모르겠어요.
-      잘하고 있는 건지, 이 방향이 맞는 건지 한번쯤 다른 세대 이웃에게 물어보고 싶어요.
-    </p>
+    <p class="story-desc">취업도 쉽지 않지만, 이 회사도 내가 원하던 곳이 맞는지 모르겠어요. 잘하고 있는 건지, 이 방향이 맞는 건지 한번쯤 다른 세대 이웃에게 물어보고 싶어요.</p>
   </div>
 </section>
 
@@ -350,10 +451,7 @@
   <div class="story-text">
     <p class="story-generation">312호</p>
     <h3 class="story-name">"정답 말고<br>경험을 듣고 싶어요."</h3>
-    <p class="story-desc">
-      커리어도 쌓였고 연봉도 올랐는데, 어느 순간부터 '이게 다인가' 싶어요.
-      이직할지, 계속 다닐지, 새로 도전할지 고민 될 때, 나보다 먼저 이 시기를 거친 이웃의 이야기를 듣고 싶어요.
-    </p>
+    <p class="story-desc">커리어도 쌓였고 연봉도 올랐는데, 어느 순간부터 '이게 다인가' 싶어요. 이직할지, 계속 다닐지, 새로 도전할지 고민 될 때, 나보다 먼저 이 시기를 거친 이웃의 이야기를 듣고 싶어요.</p>
   </div>
 </section>
 
@@ -370,11 +468,7 @@
   <div class="story-text">
     <p class="story-generation">406호</p>
     <h3 class="story-name">"위아래는 보이는데,<br>난 어디 있는 걸까요?"</h3>
-    <p class="story-desc">
-      지금은 위도 보이고 아래도 보이는 위치네요. 
-      아래 세대에겐 꼰대 소리 들을까 봐 조심스럽고, 위 세대는 저도 어려워요.
-      이런 느낌, 모르지오에선 모르는 척해도 되겠죠?
-    </p>
+    <p class="story-desc">지금은 위도 보이고 아래도 보이는 위치네요. 아래 세대에겐 꼰대 소리 들을까 봐 조심스럽고, 위 세대는 저도 어려워요. 이런 느낌, 모르지오에선 모르는 척해도 되겠죠?</p>
   </div>
 </section>
 
@@ -391,10 +485,7 @@
   <div class="story-text">
     <p class="story-generation">510호</p>
     <h3 class="story-name">"오래 했다고,<br>모두 다 아는 건 아니죠."</h3>
-    <p class="story-desc">
-      세상이 빠르게 바뀌는 게 버겁지만 흥미로워요.
-      오래 일하면서 쌓아온 것들, 당연하게 여기던 것들이 다른 세대에겐 낯선 일일지 가끔은 궁금해요.
-    </p>
+    <p class="story-desc">세상이 빠르게 바뀌는 게 버겁지만 흥미로워요. 오래 일하면서 쌓아온 것들, 당연하게 여기던 것들이 다른 세대에겐 낯선 일일지 가끔은 궁금해요.</p>
   </div>
 </section>
 
@@ -406,6 +497,162 @@
   </p>
 </div>
 
+<!-- ── EPISODES 섹션 (신규) ── -->
+<section class="episodes fade-in" id="episodes">
+  <div class="episodes-header">
+    <p class="episodes-label">반상회 듣기</p>
+    <h2 class="episodes-title">입주 전에 한 번 들어보세요</h2>
+    <p class="episodes-intro">입주민들이 직접 만들고 발행한 반상회입니다.<br>들어보고 소감이나 입주 신청을 남겨주세요.</p>
+  </div>
+
+  <!-- EP1 풀 블록 -->
+  <div class="ep1-block fade-in">
+    <div class="ep-meta">
+      <span class="ep-number">EP. 1</span>
+      <span class="ep-badge-live">지금 들을 수 있어요</span>
+    </div>
+    <h3 class="ep1-title">모르지오 입주민 소개</h3>
+    <p class="ep1-desc">반상회가 처음 열린 날, 12명의 이웃이 처음으로 호수를 공개했습니다. 20대부터 50대까지 어떤 사람들이 이 아파트에 들어왔는지 들어보세요.</p>
+
+    <div class="audio-player-wrap">
+      <span class="audio-label">EP. 1 · 재생</span>
+      <audio controls preload="metadata">
+        <!-- mp3 파일 이름 확정 후 src 교체 -->
+        <source src="ep1-residents.mp3" type="audio/mpeg">
+        브라우저가 오디오를 지원하지 않습니다.
+      </audio>
+    </div>
+
+    <!-- 입주민 아파트 (인터랙티브) -->
+    <p class="residents-grid-title">EP. 1 출연 입주민 · 창문을 눌러보세요</p>
+    <div class="apartment">
+      <div class="apt-roof">
+        <span class="apt-sign">MORGIO</span>
+      </div>
+
+      <!-- 5층 -->
+      <div class="apt-floor">
+        <span class="apt-floor-label">5F</span>
+        <div class="apt-units">
+          <button class="apt-window dark" disabled></button>
+          <button class="apt-window dark soon" disabled><span class="soon-text">모집중</span></button>
+          <button class="apt-window dark" disabled></button>
+          <button class="apt-window lit" data-unit="510">
+            <span class="win-avatar av-510"><span class="win-num">510</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4층 -->
+      <div class="apt-floor">
+        <span class="apt-floor-label">4F</span>
+        <div class="apt-units">
+          <button class="apt-window lit" data-unit="402">
+            <span class="win-avatar av-402"><span class="win-num">402</span></span>
+          </button>
+          <button class="apt-window dark" disabled></button>
+          <button class="apt-window lit" data-unit="404">
+            <span class="win-avatar av-404"><span class="win-num">404</span></span>
+          </button>
+          <button class="apt-window dark soon" disabled><span class="soon-text">모집중</span></button>
+        </div>
+      </div>
+
+      <!-- 3층 -->
+      <div class="apt-floor">
+        <span class="apt-floor-label">3F</span>
+        <div class="apt-units">
+          <button class="apt-window lit" data-unit="301">
+            <span class="win-avatar av-301"><span class="win-num">301</span></span>
+          </button>
+          <button class="apt-window lit" data-unit="302">
+            <span class="win-avatar av-302"><span class="win-num">302</span></span>
+          </button>
+          <button class="apt-window lit" data-unit="303">
+            <span class="win-avatar av-303"><span class="win-num">303</span></span>
+          </button>
+          <button class="apt-window lit" data-unit="304">
+            <span class="win-avatar av-304"><span class="win-num">304</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2층 (분양 중) -->
+      <div class="apt-floor">
+        <span class="apt-floor-label">2F</span>
+        <div class="apt-units">
+          <button class="apt-window dark soon" disabled><span class="soon-text">모집중</span></button>
+          <button class="apt-window dark" disabled></button>
+          <button class="apt-window dark soon" disabled><span class="soon-text">모집중</span></button>
+          <button class="apt-window dark" disabled></button>
+        </div>
+      </div>
+
+      <!-- 1층 로비 -->
+      <div class="apt-lobby">
+        <div class="lobby-door"></div>
+        <span class="lobby-text">모르지오 아파트 · 반상회 진행 중</span>
+      </div>
+    </div>
+
+    <!-- 입주민 모달 -->
+    <div class="resident-modal" id="residentModal">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card" role="dialog" aria-modal="true">
+        <button class="modal-close" data-close aria-label="닫기">&times;</button>
+        <div class="modal-avatar" id="modalAvatar"><span id="modalAvatarNum"></span></div>
+        <p class="modal-unit" id="modalUnit"></p>
+        <p class="modal-quote" id="modalQuote"></p>
+        <p class="modal-bio" id="modalBio"></p>
+      </div>
+    </div>
+  </div><!-- /ep1-block -->
+
+  <!-- EP2, EP3 컴팩트 카드 -->
+  <div class="ep-coming-grid fade-in">
+
+    <div class="ep-coming-card">
+      <p class="ep-coming-number">EP. 2</p>
+      <span class="ep-coming-badge">팟캐스트에서 듣기</span>
+      <h4 class="ep-coming-title">절대 안 한다고 했는데<br>결국 하고 있는 것</h4>
+      <p class="ep-coming-desc">창업, 이직, 유튜브, 운동… 절대 하지 않겠다고 선언했다가 어느 순간 하고 있는 자신을 발견한 이야기들. 네 세대의 '결국'이 모였습니다.</p>
+      <!-- href에 팟캐스트 링크 추가 -->
+      <a href="#" target="_blank" rel="noopener" class="ep-coming-link disabled">
+        <span>듣기</span>
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="ep-coming-card">
+      <p class="ep-coming-number">EP. 3</p>
+      <span class="ep-coming-badge">팟캐스트에서 듣기</span>
+      <h4 class="ep-coming-title">요즘 나를 제일<br>설레게 하는 것</h4>
+      <p class="ep-coming-desc">일도 일상도 무감각해질 때, 갑자기 설레는 게 생겼다. 20대부터 50대까지 지금 이 순간 가장 두근거리는 것을 꺼내놓는 반상회.</p>
+      <!-- href에 팟캐스트 링크 추가 -->
+      <a href="#" target="_blank" rel="noopener" class="ep-coming-link disabled">
+        <span>듣기</span>
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div><!-- /ep-coming-grid -->
+
+  <!-- 소감/신청 배너 -->
+  <div class="reaction-banner fade-in">
+    <div class="reaction-text">
+      <h3>들어봤다면, 한 마디 남겨주세요.<br>입주 신청도 이 곳에서 합니다.</h3>
+      <p>소감은 짧아도 괜찮아요. 어떤 에피소드가 남았는지 궁금해요.</p>
+    </div>
+    <div class="reaction-btns">
+      <a href="https://forms.gle/Rmh9tJWWuxs8mmtM9" target="_blank" rel="noopener" class="btn-reaction primary">입주 신청하기</a>
+      <!-- href에 소감 구글폼 링크 추가 -->
+      <a href="#" target="_blank" rel="noopener" class="btn-reaction outline">청취 소감 남기기</a>
+    </div>
+  </div>
+
+</section><!-- /episodes -->
+
+<!-- CONCEPT -->
 <section class="concept fade-in">
   <p class="concept-label">반상회</p>
   <p class="concept-main">
@@ -413,7 +660,7 @@
     할 말 있는 세대가 반상회를 열면<br>
     다른 세대 이웃들이 문을 열고 함께 해요.<br>
     가르치는 사람도 없고, 배우는 사람도 없어요.<br>
-    나의 시선으로 느끼고 말할 뿐, 특정 세대를 대표할 필요 없어요.<br>
+    나의 시선으로 느끼고 말할 뿐, 특정 세대를 대표할 필요 없어요.
   </p>
   <div class="concept-values">
     <div class="value-item">
@@ -440,6 +687,7 @@
   </div>
 </section>
 
+<!-- SPECS -->
 <section class="specs fade-in" id="specs">
   <div class="specs-header">
     <p class="specs-label">분양 안내</p>
@@ -477,6 +725,7 @@
   </div>
 </section>
 
+<!-- APPLICATION -->
 <section class="application fade-in" id="application">
   <p class="application-label">입주 신청</p>
   <h2 class="application-title">모르지오에 입주하세요</h2>
@@ -502,29 +751,28 @@
   <p class="application-sub">세대별 균형에 맞춰 순차 선발</p>
 </section>
 
+<!-- FAQ -->
 <section class="faq fade-in" id="faq">
   <div class="faq-header">
     <p class="faq-label">FAQ</p>
     <h2 class="faq-title">자주 묻는 질문</h2>
   </div>
   <div class="faq-container">
-
     <div class="faq-group">
       <div class="faq-group-title">Worldview<span class="faq-group-title-ko">세계관 관련</span></div>
       <div class="faq-item">
         <button class="faq-question"><span><span class="faq-question-mark">Q.</span>이게 진짜 주거용 아파트인가요?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-answer"><p>아니요. 모르지오는 실제로 입주하는 아파트가 아니라 <strong>팟캐스트로 만나는 가상의 아파트</strong>예요. '입주'는 팟캐스트 멤버로 합류한다는 의미이고, '반상회'는 매주 열리는 녹음 모임을 뜻합니다. 분양·임대·거주와는 전혀 관계가 없어요.</p></div>
+        <div class="faq-answer"><p>아니요. 모르지오는 실제로 입주하는 아파트가 아니라 <strong>팟캐스트로 만나는 가상의 아파트</strong>예요. '입주'는 팟캐스트 멤버로 합류한다는 의미이고, '반상회'는 매주 열리는 녹음 모임을 뜻합니다.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question"><span><span class="faq-question-mark">Q.</span>모르지오 아파트가 뭔가요?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-answer"><p>20대~50대까지 여성들이 모여 사는 가상의 아파트예요. 입주민들이 매주 반상회를 열고, 그 대화가 팟캐스트로 세상에 나갑니다. 모르지오는 서로 모르기 때문에 더 솔직하게 이야기할 수 있는 공간이에요.</p></div>
+        <div class="faq-answer"><p>20대~50대까지 여성들이 모여 사는 가상의 아파트예요. 입주민들이 매주 반상회를 열고, 그 대화가 팟캐스트로 세상에 나갑니다.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question"><span><span class="faq-question-mark">Q.</span>왜 세대번호로 활동하나요?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-answer"><p>이름 대신 호수로 불리면 나이도, 직함도, 회사도 중요하지 않아요. 그냥 같은 건물에 사는 이웃으로 만나는 거예요. 203호가 누군지보다 203호가 어떤 이야기를 꺼내는지가 더 중요하니까요.</p></div>
+        <div class="faq-answer"><p>이름 대신 호수로 불리면 나이도, 직함도, 회사도 중요하지 않아요. 203호가 누군지보다 203호가 어떤 이야기를 꺼내는지가 더 중요하니까요.</p></div>
       </div>
     </div>
-
     <div class="faq-group">
       <div class="faq-group-title">Operation<span class="faq-group-title-ko">운영 관련</span></div>
       <div class="faq-item">
@@ -537,26 +785,24 @@
       </div>
       <div class="faq-item">
         <button class="faq-question"><span><span class="faq-question-mark">Q.</span>편집 경험이 없어도 되나요?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-answer"><p>됩니다. 단, 자신이 발제한 회차의 편집과 발행은 직접 해야 해요. 처음 하는 분들을 위해 최소한의 가이드를 드립니다.</p></div>
+        <div class="faq-answer"><p>됩니다. 자신이 발제한 회차의 편집과 발행은 직접 해야 해요. 처음 하는 분들을 위해 최소한의 가이드를 드립니다.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question"><span><span class="faq-question-mark">Q.</span>얼마나 자주 참여해야 하나요?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-answer"><p>12명 기준으로 3개월에 한 번 발제 순서가 돌아옵니다. 발제 외에도 이웃으로 참여하는 경우가 생기기 때문에 3개월에 총 3~4회(월 1회) 정도 녹음에 참여하게 됩니다.</p></div>
+        <div class="faq-answer"><p>3개월에 한 번 발제 순서가 돌아옵니다. 이웃으로 참여하는 경우도 있어 3개월에 총 3~4회 정도 녹음에 참여합니다.</p></div>
       </div>
     </div>
-
     <div class="faq-group">
       <div class="faq-group-title">Eligibility<span class="faq-group-title-ko">자격 관련</span></div>
       <div class="faq-item">
         <button class="faq-question"><span><span class="faq-question-mark">Q.</span>IT 업계가 아니어도 되나요?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-answer"><p>됩니다. IT, 스타트업, 콘텐츠, 금융, 커머스, 마케팅 등 일하는 여성이면 누구든 환영해요. (휴직중/구직중/이직중/경력단절중 모두 가능)</p></div>
+        <div class="faq-answer"><p>됩니다. IT, 스타트업, 콘텐츠, 금융, 커머스, 마케팅 등 일하는 여성이면 누구든 환영해요. 휴직중·구직중·이직중·경력단절중 모두 가능합니다.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question"><span><span class="faq-question-mark">Q.</span>팟캐스트 경험이 없어도 되나요?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-answer"><p>전혀 상관없어요. 처음이어도 괜찮습니다. 모르지오는 팟캐스트 전문 제작팀이 아니라 각자의 목소리로 만드는 반상회예요.</p></div>
+        <div class="faq-answer"><p>전혀 상관없어요. 모르지오는 팟캐스트 전문 제작팀이 아니라 각자의 목소리로 만드는 반상회예요.</p></div>
       </div>
     </div>
-
     <div class="faq-group">
       <div class="faq-group-title">Practical<span class="faq-group-title-ko">실용 관련</span></div>
       <div class="faq-item">
@@ -564,15 +810,10 @@
         <div class="faq-answer"><p>연령대별 균형을 먼저 맞춥니다. 다음은 입주 동기와 반상회에서 하고 싶은 이야기를 보고 판단합니다. 경력이나 스펙은 상관 없어요.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question"><span><span class="faq-question-mark">Q.</span>언제 결과를 알 수 있나요?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-answer"><p>세대별 균형을 맞춰가며 순차적으로 선발합니다. 결과는 확정되는 대로 개별 연락드립니다.</p></div>
-      </div>
-      <div class="faq-item">
         <button class="faq-question"><span><span class="faq-question-mark">Q.</span>활동비나 보상이 있나요?</span><span class="faq-toggle">+</span></button>
         <div class="faq-answer"><p>별도의 활동비는 없습니다. 모르지오 아파트 입주민으로 세대번호를 부여받고, 팟캐스트 크레딧에 이름이 올라갑니다.</p></div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -601,6 +842,59 @@
     btn.addEventListener('click', () => {
       btn.parentElement.classList.toggle('open');
     });
+  });
+
+  // ── 입주민 모달 ──
+  const residents = {
+    "301": { unit: "301호 · 말룩얼", quote: "“친구라는 게 세대마다<br>어떤 의미인지 묻고 싶어요.”", bio: "여러 회사와 조직 문제를 푸는 컨설턴트. 일 밖에서는 새를 관찰하는 탐조가 취미이고, 탐조 플랫폼도 개발 중이에요." },
+    "302": { unit: "302호 · 소피", quote: "“연결과 연대의 힘을<br>누구보다 믿어요.”", bio: "엄마들이 동네에서 육아 친구를 찾도록 돕는 서비스를 운영해요. 언젠가 누군가에게 의지가 되는 공동체를 만들고 싶어요." },
+    "303": { unit: "303호 · 키미", quote: "“회사 밖에서<br>지적 사심 채우러 왔어요.”", bio: "직함은 PM, 실은 올라운더. 역사학 전공이라 사람들이 쌓아온 경험 듣는 걸 좋아하고, 테크로 사회 임팩트 만드는 일을 해요." },
+    "304": { unit: "304호 · 도도개구리", quote: "“왜 그 일을 고르셨는지<br>어떻게 살아가는지 묻고 싶어요.”", bio: "공인노무사이자 AI PM. 노동 문제와 AI, 두 세계에 발을 걸치고 있어요. 다른 사람들의 치열함이 궁금해졌어요." },
+    "402": { unit: "402호 · 할리", quote: "“낀 리더예요. 저도<br>기댈 리더가 필요한 자리.”", bio: "사회복지 분야에서 사업 관리를 해요. 위도 아래도 보이는데 정작 내가 어디쯤 있는지 모르겠는 자리, 다들 어떻게 버티는지 궁금해요." },
+    "404": { unit: "404호 · 일리", quote: "“이 아파트가 재건축할 때<br>우린 다 어떻게 살고 있을까요?”", bio: "소규모 조직을 컨설팅해요. 일도 취미도 사람 만나는 것. 지금 한창인 우리가 노후를 어떻게 그리는지 세대별로 듣고 싶어요." },
+    "510": { unit: "510호 · 오잉", quote: "“성장이라는 게<br>대체 뭘까요?”", bio: "IT 서비스 만드는 사람들을 위한 일을 해요. 다들 성장해야 한다는데, 그게 뭔지 다른 세대의 이야기를 들어보고 싶어요." }
+  };
+
+  const modal = document.getElementById('residentModal');
+  const mAvatar = document.getElementById('modalAvatar');
+  const mAvatarNum = document.getElementById('modalAvatarNum');
+  const mUnit = document.getElementById('modalUnit');
+  const mQuote = document.getElementById('modalQuote');
+  const mBio = document.getElementById('modalBio');
+
+  // 일러스트 이미지가 준비된 호수 목록 (이미지 추가하면 여기에 호수만 넣기)
+  const hasImage = ["301", "302", "303", "304", "402", "404", "510"];
+
+  function openModal(unit) {
+    const r = residents[unit];
+    if (!r) return;
+    if (hasImage.includes(unit)) {
+      mAvatar.style.backgroundImage = "url('r-" + unit + ".png')";
+      mAvatarNum.style.display = 'none';
+    } else {
+      mAvatar.style.backgroundImage = 'none';
+      mAvatarNum.style.display = '';
+      mAvatarNum.textContent = unit;
+    }
+    mUnit.textContent = r.unit;
+    mQuote.innerHTML = r.quote;
+    mBio.textContent = r.bio;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.apt-window.lit').forEach(win => {
+    win.addEventListener('click', () => openModal(win.dataset.unit));
+  });
+  modal.querySelectorAll('[data-close]').forEach(el => {
+    el.addEventListener('click', closeModal);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
   });
 </script>
 </body>
