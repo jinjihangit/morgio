@@ -128,13 +128,17 @@
   /* ── 입주민 아파트 (인터랙티브) ── */
   .residents-grid-title { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 4px; color: var(--mid-text); margin-bottom: 24px; font-style: italic; text-align: center; }
 
-  .apartment { max-width: 600px; margin: 0 auto; background: #ece3d3; border: 1px solid rgba(26,58,42,0.12); border-radius: 4px 4px 0 0; box-shadow: 0 30px 80px rgba(26,58,42,0.18); overflow: hidden; }
+  .apartment { max-width: 600px; margin: 0 auto; background: #0d1410; border: none; border-radius: 6px; box-shadow: 0 30px 80px rgba(7,13,10,0.5); overflow: hidden; }
 
   /* 옥상 */
-  .apt-roof { background: #0d1f15; padding: 22px 0; text-align: center; }
-  .apt-sign { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 10px; color: #fff6e0; font-style: italic; font-weight: 500;
-    text-shadow: 0 0 4px #fff, 0 0 11px #ffd98a, 0 0 22px #e8a94e, 0 0 34px #c9852e;
-    animation: neonFlicker 4s infinite alternate; }
+  .apt-roof { background: #070d0a; padding: 26px 0; text-align: center; }
+  .apt-sign { font-family: 'Cormorant Garamond', serif; font-size: 22px; letter-spacing: 10px; font-style: italic; font-weight: 600; display: inline-flex; gap: 2px; }
+  .apt-sign .nl { color: #6db33f; text-shadow: 0 0 6px rgba(141,208,0,0.4); animation: neonOne 5.6s infinite; }
+  @keyframes neonOne {
+    0%, 100% { color: #6db33f; text-shadow: 0 0 6px rgba(141,208,0,0.4); }
+    6%, 11% { color: #eaffa0; text-shadow: 0 0 5px #fff, 0 0 14px #c6ff2e, 0 0 26px #8ad000, 0 0 38px #5fa000; }
+    15% { color: #6db33f; text-shadow: 0 0 6px rgba(141,208,0,0.4); }
+  }
   @keyframes neonFlicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 11px #ffd98a, 0 0 22px #e8a94e, 0 0 34px #c9852e; }
     20%, 24%, 55% { opacity: 0.55; text-shadow: none; }
@@ -142,30 +146,53 @@
 
   /* 층 */
   .apt-floor { display: flex; align-items: stretch; border-bottom: 1px solid rgba(26,58,42,0.1); position: relative; }
-  .apt-floor-label { width: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 14px; letter-spacing: 1px; color: #fff; background: var(--british-green); border-right: 1px solid rgba(0,0,0,0.15); font-style: italic; font-weight: 500; }
+  .apt-floor-label { width: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 1px; color: rgba(255,255,255,0.65); background: #070d0a; border-right: 4px solid #0d1410; font-style: italic; font-weight: 500; }
   .apt-units { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
 
   /* 창문 (버튼) */
-  .apt-window { position: relative; aspect-ratio: 1/0.92; border: none; border-right: 1px solid rgba(26,58,42,0.08); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.3s; }
-  .apt-units .apt-window:last-child { border-right: none; }
+  .apt-window { position: relative; aspect-ratio: 1/0.92; border: none; border-right: 5px solid #0d1410; border-bottom: 5px solid #0d1410; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.3s, box-shadow 0.3s; }
+  /* 우측 끝 테두리 유지 */
 
   /* 빈 창 (밝은 유리) */
-  .apt-window.dark { background: linear-gradient(160deg, #f6f0e4 0%, #ece4d4 100%); cursor: default; }
-  .apt-window.dark::after { content: ''; position: absolute; inset: 20% 24%; border: 1px solid rgba(26,58,42,0.07); background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 55%); }
+  .apt-window.dark { background: #d99ab0; cursor: default; }
+  .apt-window.dark::after { content: ''; }
 
   /* 모집중 창 */
-  .apt-window.soon { background: linear-gradient(160deg, #fbf6ec 0%, #f0e8d6 100%); }
-  .soon-text { position: relative; z-index: 1; font-family: 'Noto Sans KR', sans-serif; font-size: 9px; letter-spacing: 1px; color: var(--accent-gold); }
+  .apt-window.soon { background: #a8cdd4; }
+  .apt-floor:nth-child(2) .apt-window.dark { background: #e0cf94; }
+  .apt-floor:nth-child(2) .apt-window.soon { background: #c2d9a8; }
+  .apt-floor:nth-child(3) .apt-window.dark { background: #d99ab0; }
+  .apt-floor:nth-child(3) .apt-window.soon { background: #a8cdd4; }
+  .apt-floor:nth-child(4) .apt-window.dark { background: #bcaad9; }
+  .apt-floor:nth-child(4) .apt-window.soon { background: #e0b894; }
+  .apt-floor:nth-child(5) .apt-window.dark { background: #a8cdd4; }
+  .apt-floor:nth-child(5) .apt-window.soon { background: #e0cf94; }
+  .soon-text { display:none; }
 
   /* 불 켜진 창 (입주민) */
-  .apt-window.lit { background: radial-gradient(ellipse at center, rgba(201,169,110,0.28) 0%, rgba(245,240,232,0.9) 75%); }
-  .apt-window.lit:hover { background: radial-gradient(ellipse at center, rgba(201,169,110,0.42) 0%, rgba(245,240,232,0.95) 75%); }
-  .apt-window.lit:hover .win-avatar { transform: scale(1.08); border-color: #0f2218; box-shadow: 0 6px 20px rgba(26,58,42,0.4); }
+  .apt-window.lit { background: #11201a; }
+  .apt-window.lit:hover { background: #1a3328; }
+  .apt-window.lit:hover .win-avatar { width: 56px; height: 56px; border-radius: 50%; border: 3px solid; display: flex; align-items: center; justify-content: center; background: #0a1510; background-size: cover; background-position: center; transition: transform 0.3s, box-shadow 0.3s; }
   .apt-window.lit:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: -2px; }
 
   /* 창문 안 원형 아바타 */
   .win-avatar { width: 54px; height: 54px; border-radius: 50%; border: 2.5px solid var(--british-green); display: flex; align-items: center; justify-content: center; background: var(--warm-white); background-size: cover; background-position: center; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; box-shadow: 0 4px 14px rgba(26,58,42,0.22); }
-  .win-num { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--british-green); font-style: italic; font-weight: 600; }
+  .win-num { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; font-weight: 700; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
+
+  .apt-window.shape { cursor: default; }
+  .win-shape { width: 44%; height: 44%; opacity: 0.92; }
+  .win-shape svg { width: 100%; height: 100%; display: block; }
+
+
+  .av-301 { border-color:#c6ff2e; box-shadow:0 0 14px rgba(198,255,46,0.55); }
+  .av-302 { border-color:#00e5ff; box-shadow:0 0 14px rgba(0,229,255,0.55); }
+  .av-303 { border-color:#ff5da2; box-shadow:0 0 14px rgba(255,93,162,0.55); }
+  .av-304 { border-color:#ffd23f; box-shadow:0 0 14px rgba(255,210,63,0.55); }
+  .av-402 { border-color:#7cf5c0; box-shadow:0 0 14px rgba(124,245,192,0.55); }
+  .av-404 { border-color:#b18cff; box-shadow:0 0 14px rgba(177,140,255,0.55); }
+  .av-510 { border-color:#ff8c42; box-shadow:0 0 14px rgba(255,140,66,0.55); }
+  .apt-window.lit:hover .win-avatar { transform: scale(1.1); }
+
 
   /* 실제 사진 넣을 때: 아래 background-image 주석 해제하고 win-num 가려짐 */
   .av-301 { /* background-image: url('r-301.jpg'); */ }
@@ -177,19 +204,18 @@
   .av-510 { /* background-image: url('r-510.jpg'); */ }
 
   /* 1층 로비 */
-  .apt-lobby { background: #0d1f15; padding: 30px 40px; display: flex; align-items: center; justify-content: center; gap: 26px; }
-  .lobby-neon { font-family: 'Noto Serif KR', serif; font-size: 14px; letter-spacing: 2px; font-weight: 500; color: #fff6e0; white-space: nowrap; flex: 1;
-    text-shadow: 0 0 4px #fff, 0 0 10px #ffd98a, 0 0 18px #e8a94e;
-    animation: neonFlicker 5s infinite alternate; }
+  .apt-lobby { background: #070d0a; padding: 30px 40px; display: flex; align-items: center; justify-content: center; gap: 26px; }
+  .lobby-neon { font-family: 'Noto Serif KR', serif; font-size: 13px; letter-spacing: 2px; font-weight: 500; color: rgba(255,255,255,0.7); white-space: nowrap; flex: 1; }
   .lobby-neon.left { text-align: right; }
   .lobby-neon.right { text-align: left; }
   /* 화려한 출입문 */
   .lobby-door { position: relative; width: 52px; height: 64px; flex-shrink: 0; }
-  .door-arch { position: absolute; top: 0; left: 0; right: 0; height: 64px; border: 2px solid var(--accent-gold); border-radius: 26px 26px 0 0; background: linear-gradient(180deg, rgba(201,169,110,0.22), rgba(201,169,110,0.05)); box-shadow: 0 0 12px rgba(201,169,110,0.5), inset 0 0 8px rgba(201,169,110,0.3); }
-  .door-leaf { position: absolute; bottom: 0; top: 16px; width: 44%; border: 1.5px solid rgba(201,169,110,0.7); }
-  .door-leaf.l { left: 4px; border-right: none; border-radius: 14px 0 0 0; }
-  .door-leaf.r { right: 4px; border-left: none; border-radius: 0 14px 0 0; }
-  .door-lamp { position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; border-radius: 50%; background: var(--accent-gold); box-shadow: 0 0 8px 2px rgba(201,169,110,0.8); animation: pulseDot 2.4s ease infinite; }
+  .lobby-door svg { width: 100%; height: 100%; display: block; }
+  .door-knob { animation: knobGlow 2s ease-in-out infinite; transform-origin: center; }
+  @keyframes knobGlow {
+    0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 0px #c6ff2e); }
+    50% { opacity: 1; filter: drop-shadow(0 0 5px #c6ff2e) drop-shadow(0 0 9px #8ad000); }
+  }
 
   /* ── 입주민 모달 ── */
   .resident-modal { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; }
@@ -348,7 +374,6 @@
     .apt-lobby { padding: 22px 16px; gap: 12px; }
     .lobby-neon { font-size: 11px; letter-spacing: 1px; }
     .lobby-door { width: 40px; height: 50px; }
-    .door-arch { height: 50px; border-radius: 20px 20px 0 0; }
     .modal-body { padding: 28px 26px 36px; }
     .modal-quote { font-size: 17px; }
     .ep-coming-grid { grid-template-columns: 1fr; }
@@ -471,15 +496,15 @@
     <p class="residents-grid-title" id="residents">불 켜진 창을 눌러, 그 집의 이웃을 만나보세요</p>
     <div class="apartment">
       <div class="apt-roof">
-        <span class="apt-sign">MORGIO</span>
+        <span class="apt-sign"><span class="nl" style="animation-delay:0.0s">M</span><span class="nl" style="animation-delay:0.93s">O</span><span class="nl" style="animation-delay:1.87s">R</span><span class="nl" style="animation-delay:2.8s">G</span><span class="nl" style="animation-delay:3.73s">I</span><span class="nl" style="animation-delay:4.67s">O</span></span>
       </div>
 
       <!-- 5층 -->
       <div class="apt-floor">
         <span class="apt-floor-label">5F</span>
         <div class="apt-units">
-          <button class="apt-window dark" disabled></button>
-          <button class="apt-window dark soon" disabled><span class="soon-text">모집중</span></button>
+          <button class="apt-window dark shape" disabled><span class="win-shape"><svg viewBox="0 0 48 48" fill="none" stroke="#0a2016" stroke-width="3"><path d="M14 40 L14 16 Q14 6 24 6 Q34 6 34 16 L34 40 Z"/><line x1="24" y1="8" x2="24" y2="40"/><circle cx="29" cy="26" r="1.6" fill="#0a2016"/></svg></span></button>
+          <button class="apt-window dark soon" disabled></button>
           <button class="apt-window dark" disabled></button>
           <button class="apt-window lit" data-unit="510">
             <span class="win-avatar av-510"><span class="win-num">510</span></span>
@@ -494,11 +519,11 @@
           <button class="apt-window lit" data-unit="402">
             <span class="win-avatar av-402"><span class="win-num">402</span></span>
           </button>
-          <button class="apt-window dark" disabled></button>
+          <button class="apt-window dark shape" disabled><span class="win-shape"><svg viewBox="0 0 48 48" fill="none" stroke="#0a2016" stroke-width="3"><rect x="18" y="6" width="12" height="22" rx="6" fill="#0a2016" stroke="none"/><path d="M12 24 Q12 36 24 36 Q36 36 36 24"/><line x1="24" y1="36" x2="24" y2="44"/></svg></span></button>
           <button class="apt-window lit" data-unit="404">
             <span class="win-avatar av-404"><span class="win-num">404</span></span>
           </button>
-          <button class="apt-window dark soon" disabled><span class="soon-text">모집중</span></button>
+          <button class="apt-window dark soon" disabled></button>
         </div>
       </div>
 
@@ -525,10 +550,10 @@
       <div class="apt-floor">
         <span class="apt-floor-label">2F</span>
         <div class="apt-units">
-          <button class="apt-window dark soon" disabled><span class="soon-text">모집중</span></button>
-          <button class="apt-window dark" disabled></button>
-          <button class="apt-window dark soon" disabled><span class="soon-text">모집중</span></button>
-          <button class="apt-window dark" disabled></button>
+          <button class="apt-window dark soon" disabled></button>
+          <button class="apt-window dark shape" disabled><span class="win-shape"><svg viewBox="0 0 48 48"><circle cx="24" cy="17" r="8" fill="#0a2016"/><path d="M9 42 Q9 26 24 26 Q39 26 39 42 Z" fill="#0a2016"/></svg></span></button>
+          <button class="apt-window dark soon" disabled></button>
+          <button class="apt-window dark shape" disabled><span class="win-shape"><svg viewBox="0 0 48 48" fill="#0a2016"><path d="M16 30 C6 20 11 10 16 16 C21 10 26 20 16 30 Z"/><path d="M32 38 C20 26 26 14 32 21 C38 14 44 26 32 38 Z"/></svg></span></button>
         </div>
       </div>
 
@@ -536,10 +561,11 @@
       <div class="apt-lobby">
         <span class="lobby-neon left">모르지오 아파트</span>
         <div class="lobby-door">
-          <span class="door-arch"></span>
-          <span class="door-leaf l"></span>
-          <span class="door-leaf r"></span>
-          <span class="door-lamp"></span>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#c6ff2e" stroke-width="2.5">
+            <path d="M14 44 L14 16 Q14 6 24 6 Q34 6 34 16 L34 44 Z"/>
+            <line x1="24" y1="7" x2="24" y2="44"/>
+            <circle class="door-knob" cx="29" cy="26" r="2" fill="#c6ff2e" stroke="none"/>
+          </svg>
         </div>
         <span class="lobby-neon right">반상회 진행 중</span>
       </div>
@@ -820,7 +846,7 @@
     const r = residents[unit];
     if (!r) return;
     if (hasImage.includes(unit)) {
-      mPhoto.style.backgroundImage = "url('r-" + unit + ".png')";
+      mPhoto.style.backgroundImage = "url('r-" + unit + ".png?v=2')";
       mAvatarNum.style.display = 'none';
     } else {
       mPhoto.style.backgroundImage = 'none';
